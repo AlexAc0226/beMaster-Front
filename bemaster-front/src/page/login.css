@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.containerLogin{
+    background-image: url("../../public/img/film-g6a01f3c3e_1920.jpg");
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
