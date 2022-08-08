@@ -12,22 +12,22 @@ function Details() {
   const paramas = useParams();
   const navigate = useNavigate();
   const detail = useSelector(state => state.details)
-
+  
+  const navegation = () => {
+    navigate("/home");
+  };
 
   useEffect(() => {
     let contentId = paramas.id;
     dispatch(get_detail(contentId))
   }, [dispatch, paramas.id]);
 
-  const navegation = () => {
-    navigate("/home");
-  };
 
   return (
     <div className="container">
-    <nav class="navbar bg-light">
-      <div class="container-fluid">
-      <button type="button" onClick={navegation} class="btn btn-primary">Ir atras</button>
+    <nav className="navbar bg-light">
+      <div className="container-fluid">
+      <button type="button" onClick={navegation} className="btn btn-primary">Ir atras</button>
       </div>
     </nav>
     {

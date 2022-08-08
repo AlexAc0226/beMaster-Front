@@ -57,7 +57,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         dataContentEsp: [action.payload],
-        dataContent: [action.payload],
+        dataContent: action.payload,
         details: [action.payload]
       };
 

@@ -14,9 +14,7 @@ function HomeAdmin() {
 
   const [serach, setSerach] = useState('')
 
-  useEffect(() => {
-    dispatch(get_all_content())
-  } , [ dispatch ])
+
 
   function handleChange(e) {
     e.preventDefault()
@@ -35,7 +33,9 @@ function HomeAdmin() {
     };
   };
 
-  
+    useEffect(() => {
+    dispatch(get_all_content())
+  } , [ dispatch ])
 
   return (
     <div className="container">

@@ -47,9 +47,10 @@ export function get_all_content(){
 export function get_content_by_name(name){
     return async function(dispatch){
         const response = await axios.get(`http://localhost:3001/api/contents?title=${name}`);
+        console.log(response)
         dispatch({
             type: GET_CONTENT_BY_NAME,
-            payload: [response.data]
+            payload: [response.data[0]]
         })
     }
 }
