@@ -1,5 +1,5 @@
 import React from 'react'
-import {useEffect } from 'react'
+import {useEffect,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { get_all_content} from '../redux/actions/index'
 import Card from '../components/component/Card'
@@ -10,6 +10,7 @@ function HomeUser() {
   
   const data = useSelector(state => state.dataContent)
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(get_all_content())
   },[])

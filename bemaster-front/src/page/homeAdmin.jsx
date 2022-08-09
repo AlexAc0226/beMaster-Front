@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import GetAllUsers from '../components/component/formsAndFunctions/GetAllUsers'
+
 import { get_all_content, get_content_by_name } from '../redux/actions/index'
 
 import Card from '../components/component/Card'
@@ -35,7 +37,7 @@ function HomeAdmin() {
 
     useEffect(() => {
     dispatch(get_all_content())
-  } , [ dispatch ])
+  } , [ dispatch,data.dataAllUser ])
 
   return (
     <div className="container">
@@ -50,27 +52,15 @@ function HomeAdmin() {
         <li className="nav-item">
           <a className="nav-link active" aria-current="page" href="#">Home</a>
         </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">Link</a>
-        </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Modificaciones
           </a>
-          <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="#">Ver Lista de usuarios</a></li>
-            <li><a className="dropdown-item" href="#">Another action</a></li>
-            <li><a className="dropdown-item" href="#">Something else here</a></li>
-          </ul>
         </li>
         <li className="nav-item">
           <a className="nav-link disabled">Disabled</a>
         </li>
       </ul>
-      <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-        <button className="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
@@ -92,6 +82,7 @@ function HomeAdmin() {
         }
       </div>
         </div>
+        <GetAllUsers />
     </div>
   )
 }

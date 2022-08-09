@@ -23,7 +23,7 @@ function rootReducer(state = initialState, action) {
     case GET_ALL_USERS:
       return {
         ...state,
-        dataAllUser: [action.payload]
+        dataAllUser: action.payload
       };
 
     case LOGIN:

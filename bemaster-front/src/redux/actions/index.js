@@ -8,12 +8,29 @@ export const GET_CONTENT_BY_NAME = "GET_CONTENT_BY_NAME";
 export const GET_ALL_CONTENT = "GET_ALL_CONTENT";
 export const ACCES_TO_ADMIN = "ACCES_TO_ADMIN";
 export const GET_ALL_USERS = "GET_ALL_USERS";
+export const UPDATE_USER = "UPDATE_USER";
 
+export function update_user(id, payload, token){
+    return async function(dispatch){
+        try{
+            const response = await axios.put(`http://localhost:3001/api/users/${id}`, 
+            {headers: { Authorization: `Bearer ${token}`}},
+            {data:payload});
+            dispatch({
+                type: UPDATE_USER,
+            })
+        }catch(error){
+            console.log(error);
+        }
+    }
+}
 
-export function get_all_users() {
+export function get_all_users(token) {
   return async (dispatch) => {
     try {
-      const response = await axios.get("http://localhost:3001/api/users");
+        console.log("hasta aca llego el flujo")
+      const response = await axios.get("http://localhost:3001/api/users",
+      {headers: { Authorization: `Bearer ${token}` }});
       dispatch({
         type: GET_ALL_USERS,
         payload: response.data,
@@ -22,7 +39,7 @@ export function get_all_users() {
       console.log(error);
     }
   }
-}
+};
 
 export function acces_to_admin(usuario) {
     return async function (dispatch) {

@@ -1,7 +1,7 @@
 import { useState} from 'react'
 import { useDispatch} from 'react-redux'
 import { get_content_by_name } from '../../redux/actions/index'
-function Nav() {
+function Nav(v1) {
 
   const dispatch = useDispatch()
   const [serach, setSerach] = useState('')
@@ -20,6 +20,7 @@ function Nav() {
       console.log("Formulario valido");
       dispatch(get_content_by_name(serach))
       setSerach('')
+
     };
   };
     return ( 
